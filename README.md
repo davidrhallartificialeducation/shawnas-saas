@@ -30,6 +30,27 @@ cd ~/Documents/MyProjects
 ```
 
 Copy the code to your computer
+```
+git clone https://github.com/davidrhallartificialeducation/shawnas-saas.git
+```
+
+Change to the project root
+```
+cd shawnas-saas
+```
+
+run the project
+```
+docker compose up
+```
+
+## Testing
+
+1. Open Postman
+2. Create two new GET HTTP Request
+3. Set the url in the first request to localhost:3000/health (Simulated Humana API)
+4. Set the url in the second request to localhost:3001/health (Simulated Genesys API)
+5. Send a GET request and ensure they return a 200
 
 
 
