@@ -1,7 +1,13 @@
 import { Controller, Get } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
+import { Interaction } from './schemas/interaction.schema';
 
 @Controller()
 export class AppController {
+  constructor(
+    @InjectModel(Interaction.name) private readonly interactionModel: Model<Interaction>,
+  ) {}
 
   @Get('health')
   getHealth() {
@@ -11,4 +17,8 @@ export class AppController {
     };
   }
 
+  @Get('interactions')
+  async getInteractions() {
+    return await this.interactionModel.find().exec();
+  }
 }
