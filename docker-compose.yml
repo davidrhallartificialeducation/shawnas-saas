@@ -26,6 +26,8 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
+    environment:
+      - GENESYS_API_URL=http://genesys-api:3001
     depends_on:
       - genesys-api
 
